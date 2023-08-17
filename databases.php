@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ERROR | E_PARSE);
-$apizophim = mysqli_connect('localhost', 'root', '031427484', 'phimmoi');
+$apizophim = mysqli_connect('localhost', 'root', '123456789', 'zingtv');
 $apizophim -> set_charset("utf8");
 function curl($url){
 		$ch = @curl_init();
