@@ -19,7 +19,7 @@
 		<div class="btn-humber">
 			<i class="fa fa-bars"></i>
 		</div>
-		<a class="logo" href="/" title="Trang chủ"><img src="https://i.imgur.com/GPX7KV2.png" alt="PhimBom.Online - Xem Phim Mới, Phim Bom Tấn, Phim Chiếu Rạp Hay HD"/></a>
+		<a class="logo" href="/" title="Trang chủ"><img src="https://i.imgur.com/GPX7KV2.png" alt="ZingTV - Xem Phim Mới, Phim Bom Tấn, Phim Chiếu Rạp Hay HD"/></a>
 		<i class="fa fa-search btn-search" onClick="if ($('.mobile-search-bar').length>0) { $('.form-search #keyword').remove(); $('#form_search > input').attr('id','keyword'); $('.mobile-search-bar').removeClass('hide'); $('#keyword').focus(); }"></i>
 		<div class="mobile-search-bar hide">
 			<form method="GET" action="/search.php" id="form_search">
