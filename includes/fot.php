@@ -37,7 +37,7 @@ $(document).ready(function() {
 			<div class="views-row views-row-1" style="width: 100%;text-align: center;">
 			
                 <div class="logo-footer">
-                    <a href="https://phimbom.net"><img alt="logo" style="width: 200px;" src="https://i.imgur.com/GPX7KV2.png"/></a>
+                    <a href="https://zingtv.top"><img alt="logo" style="width: 200px;" src="https://i.imgur.com/GPX7KV2.png"/></a>
                 </div>
                 <div class="copy-right">
                     <p>Copyright © 2023 <font color="yellow"><b>ZingTV</b></font>. All Rights Reserved</p>
