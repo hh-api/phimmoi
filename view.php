@@ -25,49 +25,6 @@ $luotxem1 = $luotxem + mt_rand(1,9);
 $view_day = $get_info['view_day'];
 $view_day1 = $view_day + 1;
 $run = mysqli_query($apizophim, "UPDATE phim SET `view`='$luotxem1',`view_day`='$view_day1' where `slug`='".$slug."'");
-
-$movie = './movie/'.$slug.'.txt';
-if (file_exists($movie)) { $time_cache = file_get_contents($movie);
-if (time() > ($time_cache + 86400)) { $cache = '0'; } } 
-if ((!file_exists($movie)) or ($cache == '0')) { 
-$html = curl('https://api-zophim.blogspot.com/2023/01/'.$slug.'.html');    
-$list_vs = explode('</td>', explode('<td style="vertical-align: top;" class="VS">', $html)['1'])['0'];
-$all_links = explode("<br/>", $list_vs);
-foreach ($all_links as $all_links) {
-if(strlen($all_links) >1)	{
-if (strpos($all_links, '|') == true) {
-$tap = preg_replace('/\s+/', ' ', trim(explode("|", $all_links)['0']));
-$file = explode("|", $all_links)['1'];  
-$sql2 = mysqli_query($apizophim, "SELECT id FROM VIP where `slug`='".$slug."' AND `tap` = '$tap'");
-$check = mysqli_num_rows($sql2);
-if($check > 0){
-$run = mysqli_query($apizophim, "UPDATE VIP SET vs='$file' where `slug`='".$slug."' AND tap = '$tap'");
-}else{
-$run = mysqli_query($apizophim, "INSERT INTO `VIP` (`slug`, `tap`, `vs`) VALUES ('".$slug."', '".$tap."', '".$file."')");
-}
-}}}
-
-
-$list_tm = explode('</td>', explode('<td style="vertical-align: top;" class="TM">', $html)['1'])['0'];
-$all_links = explode("<br/>", $list_tm);
-foreach ($all_links as $all_links) {
-if(strlen($all_links) >1)	{
-if (strpos($all_links, '|') == true) {
-$tap = preg_replace('/\s+/', ' ', trim(explode("|", $all_links)['0']));
-$file = explode("|", $all_links)['1'];  
-$sql2 = mysqli_query($apizophim, "SELECT id FROM VIP where `slug`='".$slug."' AND `tap` = '$tap'");
-$check = mysqli_num_rows($sql2);
-if($check > 0){
-$run = mysqli_query($apizophim, "UPDATE VIP SET tm='$file' where `slug`='".$slug."' AND tap = '$tap'");
-}else{
-$run = mysqli_query($apizophim, "INSERT INTO `VIP` (`slug`, `tap`, `tm`) VALUES ('".$slug."', '".$tap."', '".$file."')");
-}
-}}}
-
-$myfile = fopen($movie, "w"); fwrite($myfile, time()); fclose($myfile);
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -92,8 +49,8 @@ $myfile = fopen($movie, "w"); fwrite($myfile, time()); fclose($myfile);
 	<meta name="referrer" content="no-referrer">
     <meta property="fb:app_id" content=""/>
 	<meta property="fb:admins" content=""/>
-    <meta name="google-site-verification" content="hExv5c5eeAXLd4umRTOVVsHH0C0ahcHd9XuApvsjziM" />
-    <meta name='dmca-site-verification' content='WlVndXFRamE2RnFET0djZlgwQWJRQT090' />
+    <meta name="google-site-verification" content="" />
+    <meta name='dmca-site-verification' content='' />
 	<link rel="shortcut icon" href="<?php echo $favicon; ?>" />
     <!-- google -->
 	<meta itemprop="name" content="Phim <?php echo $ten_phim; ?> - <?php echo $ten_goc; ?> Việt Sub, Thuyết Minh, Lồng Tiếng">
@@ -102,7 +59,7 @@ $myfile = fopen($movie, "w"); fwrite($myfile, time()); fclose($myfile);
 	<!-- facebook -->	
 	<meta property="og:title" content="Phim <?php echo $ten_phim; ?> - <?php echo $ten_goc; ?> Việt Sub, Thuyết Minh, Lồng Tiếng">
 	<meta property="og:description" content="<?php echo $noi_dung; ?>" />
-	<meta property="og:url" content="/<?php echo $slug; ?>.html" />
+	<meta property="og:url" content="<?php echo $domain.'/'.$slug; ?>.html" />
 	<meta property="og:type" content="website"/>
 	<meta property="og:image" content="<?php echo $thumb; ?>" />
 	<!-- twitter -->
@@ -112,7 +69,17 @@ $myfile = fopen($movie, "w"); fwrite($myfile, time()); fclose($myfile);
 	<meta name="twitter:image" content="<?php echo $thumb; ?>">
 	<!-- schema -->
 	<script type="application/ld+json">
-	{"@context": "http://schema.org","@graph": [{"@type": "VideoObject","name": "Phim <?php echo $ten_phim; ?> - <?php echo $ten_goc; ?> Việt Sub, Thuyết Minh, Lồng Tiếng","thumbnailUrl": "<?php echo $thumb; ?>","description": "<?php echo $noi_dung; ?>","aggregateRating": {"@type": "AggregateRating","ratingValue": "9.0","bestRating": 10,"worstRating": 1,"ratingCount": "159"}
+	{"@context": "http://schema.org","@graph": [{"@type": "VideoObject",
+	"name": "Phim <?php echo $ten_phim; ?> - <?php echo $ten_goc; ?> Việt Sub, Thuyết Minh, Lồng Tiếng",
+	"thumbnailUrl": "<?php echo $thumb; ?>",
+	"uploadDate": "<?php echo date("Y-m-d H:i:s"); ?>",
+	"contentURL": "<?php echo $domain.'/'.$slug; ?>.html",
+	"description": "<?php echo $noi_dung; ?>",
+	"aggregateRating": {"@type": "AggregateRating",
+	"ratingValue": "<?php echo mt_rand(7, 9); ?>",
+	"bestRating": 10,
+	"worstRating": 1,
+	"ratingCount": "<?php echo mt_rand(199, 99999); ?>"}
 	},{"@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": "https://ZingTV.top","name": "TV & Movies"}]}]}
 	</script>    <!-- librarie -->
 </head>
@@ -198,9 +165,9 @@ include 'includes/nav.php';
                                     <span class="rate full"></span><span class="rate full"></span><span class="rate full"></span><span class="rate full"></span><span class="rate full"></span>                                </span>
                             </div>
                             <div class="starstruck-rating">
-                                <div class="dt_rating_vgs">9.5</div>
+                                <div class="dt_rating_vgs"><?php echo mt_rand(7, 9); ?>,<?php echo mt_rand(0, 9); ?></div>
                                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                                <span class="rating-count">99</span><span class="rating-text"> lượt đánh giá</span>
+                                <span class="rating-count"><?php echo mt_rand(999, 9999); ?></span><span class="rating-text"> lượt đánh giá</span>
                             </div>
                         </div>
                     </div>
@@ -223,12 +190,42 @@ include 'includes/nav.php';
                     <div id="tab-click-server">
 					<div class="list_episodes show-list-1">
 <?php
+$cache_movie = './cache/movie/'.$slug.'.php';
+$list = './list/'.$slug.'.php';
+
+if (file_exists($cache_movie)) { $time_cache = filemtime($cache_movie);
+if (time() > ($time_cache + 600)) { $cache = '0'; } } 
+if ((!file_exists($cache_movie)) or ($cache == '0')) { 
+$html = curl('https://api-zophim.blogspot.com/2023/01/'.$slug.'.html');    
+if (strpos($html, 'class="ALL"') == true)  {
+$list_all = explode('</td>', explode('<td style="vertical-align: top;" class="ALL">', $html)['1'])['0'];
+$list_all = preg_replace('/\R+/', "\n", trim($list_all));
+if ($list_all) {
+$myfile = fopen($list, "w");
+fwrite($myfile, '<?php $list_sv="
+'.$list_all.';" ?>');
+fclose($myfile);
+}
+file_put_contents($cache_movie, '');
+}
+}
+
+if (file_exists($list)) {
+include 'list/'.$slug.'.php';
+$get_list = explode('<br/>', $list_sv);
+foreach ($get_list as $get_list) {
+if (strpos($get_list, '|') == true) {    
+$list_tap = explode("|", $get_list)['0'];
+echo '<span><a href="/'.$slug.'/tap-'.$list_tap.'.html">'.$list_tap.'</a></span>';
+}}
+} else {
 $sql10 = mysqli_query($apizophim, "SELECT tap FROM VIP where `slug`='".$slug."' order by ABS(tap)");
 while($qsql10 = mysqli_fetch_array($sql10)){
 $list_tap = $qsql10['tap'];
-?>
-<span><a href="/<?php echo $slug; ?>/tap-<?php echo $list_tap; ?>.html"><?php echo $list_tap; ?></a></span>
-<?php } ?>					    
+echo '<span><a href="/'.$slug.'/tap-'.$list_tap.'.html">'.$list_tap.'</a></span>';
+} 
+}
+?>					    
 </div>
 </div>
 </div>
