@@ -30,7 +30,7 @@ $view = $qsql4['view'];
 $thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
-}}
+}
 ?>    
                 <li class="film-item-ver">
 					<a href="/<?php echo $slug; ?>.html" title="<?php echo $ten_phim; ?>">
@@ -128,7 +128,6 @@ $thumb = $get_info['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $get_info['thumb']);
 }
-
 ?>    
                 <li class="film-item-ver">
 					<a href="/<?php echo $slug; ?>.html" title="<?php echo $ten_phim; ?>">
