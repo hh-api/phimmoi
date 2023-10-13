@@ -19,7 +19,13 @@ $dien_vien = $get_info['dien_vien'];
 $trang_thai = $get_info['trang_thai'];
 $thoi_luong = $get_info['thoi_luong'];
 $bole = $get_info['bole'];
+if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'l.jpg', $get_info['thumb']);
+$image = curl($thumb);
+file_put_contents("./img/".$slug.".jpg", $image);
+$thumb = '/img/'.$slug.'.jpg';
+$run = mysqli_query($apizophim, "UPDATE phim SET `thumb`='$thumb' where `slug`='".$slug."'");
+}
 $luotxem = $get_info['view'];
 $luotxem1 = $luotxem + mt_rand(1,9);
 $view_day = $get_info['view_day'];
