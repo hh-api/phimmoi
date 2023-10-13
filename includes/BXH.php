@@ -27,7 +27,10 @@ $trang_thai = $qsql4['trang_thai'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
-$thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+$thumb = $get_info['thumb'];
+if (strpos($thumb, 'imgur.com') == true)  {
+$thumb = str_replace('.jpg', 'm.jpg', $get_info['thumb']);
+}
 ?>    
                 <li class="film-item-ver">
 					<a href="/<?php echo $slug; ?>.html" title="<?php echo $ten_phim; ?>">
@@ -82,7 +85,10 @@ $trang_thai = $qsql4['trang_thai'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
-$thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+$thumb = $get_info['thumb'];
+if (strpos($thumb, 'imgur.com') == true)  {
+$thumb = str_replace('.jpg', 'm.jpg', $get_info['thumb']);
+}
 ?>                    
                 <li class="film-item-ver">
 					<a href="/<?php echo $slug; ?>.html" title="<?php echo $ten_phim; ?>">
@@ -118,7 +124,10 @@ $time = $sql_bxh['time'];
 $sql1 = mysqli_query($apizophim, "SELECT thumb,ten_phim FROM phim WHERE slug='$slug'");
 $sql2 = mysqli_fetch_array($sql1);
 $ten_phim = $sql2['ten_phim'];
-$thumb = str_replace('.jpg', 'm.jpg', $sql2['thumb']);
+$thumb = $get_info['thumb'];
+if (strpos($thumb, 'imgur.com') == true)  {
+$thumb = str_replace('.jpg', 'm.jpg', $get_info['thumb']);
+}
 
 ?>    
                 <li class="film-item-ver">
