@@ -58,7 +58,9 @@ $thoi_luong = $qsql4['thoi_luong'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
+if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+}
 ?>    
                 <li class="film-item-ver">
 					<a href="/<?php echo $slug; ?>.html" title="<?php echo $ten_phim; ?>">
