@@ -8,9 +8,9 @@ $trang_thai = $qsql4['trang_thai'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
-$thumb = $get_info['thumb'];
+$thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
-$thumb = str_replace('.jpg', 'l.jpg', $get_info['thumb']);
+$thumb = str_replace('.jpg', 'l.jpg', $qsql4['thumb']);
 }
 ?> 
 <li class="film-item">
