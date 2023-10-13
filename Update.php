@@ -2,7 +2,8 @@
 include 'databases.php';
 $time = time();
 $page = $_GET['page'];
-if($page == "") { $page= 1; }
+if($page == "") { $page= 1; } else { $pagenext = $page + 1; }
+
 $html = curl('https://www.blogger.com/feeds/2539836325185027744/posts/default?max-results=50&start-index='.(50*($page - 1) + 1));
 $no = 1;
 $all_links = explode('</published><updated>', $html);
@@ -35,4 +36,10 @@ echo '<br/>--- Insert : '.$ten_phim;
 $no = $no + 1;
 }
 }
+
+if ($pagenext) {
+echo '<meta http-equiv="refresh" content="30; /Update.php?page='.$pagenext.'" />';
+}
+
+
 ?>
