@@ -38,7 +38,7 @@ $no = $no + 1;
 }
 
 if ($pagenext) {
-echo '<meta http-equiv="refresh" content="30; /Update.php?page='.$pagenext.'" />';
+echo '<meta http-equiv="refresh" content="10; /Update.php?page='.$pagenext.'" />';
 }
 
 
