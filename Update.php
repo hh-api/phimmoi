@@ -1,7 +1,8 @@
 <?php
 include 'databases.php';
 $time = time();
-$page = 1;
+$page = $_GET['page'];
+if($page == "") { $page= 1; }
 $html = curl('https://www.blogger.com/feeds/2539836325185027744/posts/default?max-results=50&start-index='.(50*($page - 1) + 1));
 $no = 1;
 $all_links = explode('</published><updated>', $html);
