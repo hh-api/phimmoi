@@ -9,7 +9,10 @@ $thoi_luong = $qsql4['thoi_luong'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
-$thumb = str_replace('.jpg', 'l.jpg', $qsql4['thumb']);
+$thumb = $get_info['thumb'];
+if (strpos($thumb, 'imgur.com') == true)  {
+$thumb = str_replace('.jpg', 'l.jpg', $get_info['thumb']);
+}
 ?>                            
 <li class="film-item">
                     <span class="current-quality"><?php echo $thoi_luong; ?> <?php echo $trang_thai; ?></span>
