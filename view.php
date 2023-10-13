@@ -19,6 +19,7 @@ $dien_vien = $get_info['dien_vien'];
 $trang_thai = $get_info['trang_thai'];
 $thoi_luong = $get_info['thoi_luong'];
 $bole = $get_info['bole'];
+$thumb = $get_info['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'l.jpg', $get_info['thumb']);
 $image = curl($thumb);
