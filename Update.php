@@ -27,7 +27,7 @@ if($check > 0) {
 $run = mysqli_query($apizophim,"UPDATE phim SET `thumb`='".$thumb."',`ten_phim`='".$ten_phim."',`ten_goc`='".$ten_goc."',`trang_thai`='".$trang_thai."',`time`='".($time-$no)."' where slug='".$slug."'");
 echo '<br/>--- Update : '.$ten_phim;
 } else {
-$az = mysqli_query($apizophim, "INSERT INTO `phim` (`slug`,`ten_phim`,`ten_goc`,`thumb`,`bole`,`nam_chieu`,`trang_thai`,`thoi_luong`,`quoc_gia`,`the_loai`,`dien_vien`,`noi_dung`,`time`) VALUES ('".$slug."','".$ten_phim."','".$ten_goc."','".$thumb."','".$bole."','".$nam_chieu."','".$trang_thai."','".$thoi_luong."','".$quoc_gia."','".$the_loai."','".$dien_vien."','".$noi_dung."','".($time-$no)."')");
+$az = mysqli_query($apizophim, "INSERT INTO `phim` (`slug`,`ten_phim`,`ten_goc`,`thumb`,`bole`,`nam_chieu`,`trang_thai`,`thoi_luong`,`quoc_gia`,`the_loai`,`dien_vien`,`noi_dung`,`view`,`view_day`,`time`) VALUES ('".$slug."','".$ten_phim."','".$ten_goc."','".$thumb."','".$bole."','".$nam_chieu."','".$trang_thai."','".$thoi_luong."','".$quoc_gia."','".$the_loai."','".$dien_vien."','".$noi_dung."','0','0','".($time-$no)."')");
 
 echo '<br/>--- Insert : '.$ten_phim;
 }
