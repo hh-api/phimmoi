@@ -30,6 +30,8 @@ $view = $qsql4['view'];
 $thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+} elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
+$thumb = str_replace('=s0', '=s100', $qsql4['thumb']);    
 }
 ?>    
                 <li class="film-item-ver">
@@ -58,8 +60,11 @@ $thoi_luong = $qsql4['thoi_luong'];
 $nam_chieu = $qsql4['nam_chieu'];
 $quoc_gia = $qsql4['quoc_gia'];
 $view = $qsql4['view'];
+$thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+} elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
+$thumb = str_replace('=s0', '=s100', $qsql4['thumb']);    
 }
 ?>    
                 <li class="film-item-ver">
@@ -90,6 +95,8 @@ $view = $qsql4['view'];
 $thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
 $thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+} elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
+$thumb = str_replace('=s0', '=s100', $qsql4['thumb']);    
 }
 ?>                    
                 <li class="film-item-ver">
@@ -126,9 +133,11 @@ $time = $sql_bxh['time'];
 $sql1 = mysqli_query($apizophim, "SELECT thumb,ten_phim FROM phim WHERE slug='$slug'");
 $sql2 = mysqli_fetch_array($sql1);
 $ten_phim = $sql2['ten_phim'];
-$thumb = $get_info['thumb'];
+$thumb = $qsql4['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
-$thumb = str_replace('.jpg', 'm.jpg', $get_info['thumb']);
+$thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+} elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
+$thumb = str_replace('=s0', '=s100', $qsql4['thumb']);    
 }
 ?>    
                 <li class="film-item-ver">
