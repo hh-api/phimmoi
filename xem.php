@@ -22,7 +22,9 @@ $thoi_luong = $get_info['thoi_luong'];
 $bole = $get_info['bole'];
 $thumb = $get_info['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
-$thumb = str_replace('.jpg', 'l.jpg', $get_info['thumb']);
+$thumb = str_replace('.jpg', 'l.jpg', $qsql4['thumb']);
+} elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
+$thumb = str_replace('=s0', '=s400', $qsql4['thumb']);    
 }
 $luotxem = $get_info['view'];
 $luotxem1 = $luotxem + mt_rand(1,9);
