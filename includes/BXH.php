@@ -133,11 +133,11 @@ $time = $sql_bxh['time'];
 $sql1 = mysqli_query($apizophim, "SELECT thumb,ten_phim FROM phim WHERE slug='$slug'");
 $sql2 = mysqli_fetch_array($sql1);
 $ten_phim = $sql2['ten_phim'];
-$thumb = $qsql4['thumb'];
+$thumb = $qsql2['thumb'];
 if (strpos($thumb, 'imgur.com') == true)  {
-$thumb = str_replace('.jpg', 'm.jpg', $qsql4['thumb']);
+$thumb = str_replace('.jpg', 'm.jpg', $qsql2['thumb']);
 } elseif (strpos($thumb, 'lh3.ggpht.com') == true)  {
-$thumb = str_replace('=s0', '=s100', $qsql4['thumb']);    
+$thumb = str_replace('=s0', '=s100', $qsql2['thumb']);    
 }
 ?>    
                 <li class="film-item-ver">
