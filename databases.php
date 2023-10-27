@@ -28,4 +28,5 @@ $favicon = 'https://i.imgur.com/C0YwHGhm.png';
 $title = 'Xem Phim Online, Xem Phim Mới, Phim HD, Xem Phim Nhanh, Xem Phim Thuyết Minh, Lồng Tiếng';
 $description = 'ZingTV là website xem phim trực tuyến miễn phí với tiêu chí cập nhật nhanh nhất, chính xác và chất lượng. Chúc các bạn có những giây phút xem phim vui vẻ!';
 $root_folder = '/www/wwwroot/zingtv.top';
+$tvc = '0';
 ?>
