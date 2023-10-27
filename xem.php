@@ -175,7 +175,7 @@ $auto = 'https://ssplay.net/loading.php';
             <div class="box-player" id="box-player">
  
                 <div style="text-align: center;height: 377px;width: 100%;position: relative;background:url() #1f1f1f center no-repeat;">
-                <iframe id="ZingTV" width="100%" height="100%" src="<?php echo $auto; ?>" frameborder="0" scrolling="0" allowfullscreen></iframe>    
+                <iframe id="ZingTV" width="100%" height="100%" src="<?php if ($tvc=='1') { echo '/TVC.php?link='.$auto; } else { echo $auto; } ?>" frameborder="0" scrolling="0" allowfullscreen></iframe>    
                 </div>
             </div>
         </div>
