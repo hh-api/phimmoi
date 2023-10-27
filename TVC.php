@@ -10,7 +10,7 @@
   player.setup({
             primary: "html5",
             key: "F4+phNkFZ4+I3UhfSN6h8JPbxdnsto3caVMq+A==",
-			sources: [{"file":"/0.mp4","label":"1080p","type":"video/mp4"}],
+			sources: [{"file":"/vast/0.mp4","label":"1080p","type":"video/mp4"}],
 			image: "https://lh3.googleusercontent.com/-gUfxDqPDO70/YoxSqln2-JI/AAAAAAAAASI/GWtnHRCPOPAOvFYSICOG0HSRIzdD02VcACNcBGAsYHQ/s0/i.jpg",
 			skin: {
                 name: "tube",
